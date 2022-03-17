@@ -10,6 +10,9 @@ from train.train_baseline import run
 from utilities import config, utils, dataset as data
 
 
+torch.autograd.set_detect_anomaly(True)
+
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', type=str, default='baseline')
