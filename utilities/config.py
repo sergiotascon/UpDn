@@ -1,5 +1,5 @@
 # type 'cp' or '' (VQA-CP or VQA)
-type = ''
+type = 'cp'
 # dataset version (v1 or v2)
 version = 'v2'
 # 'train' or 'trainval'
@@ -13,7 +13,7 @@ visual_glimpses = 1
 test_split = 'test2015'  # either 'test-dev2015' or 'test2015'
 
 # directory containing all images
-dataroot = '/home/share/liuyibing/vqa/'
+dataroot = '/storage/workspaces/artorg_aimi/ws_00000/sergio/VQACP2/'
 if type == 'cp':
     image_path = dataroot + 'mscoco-cp'
 else:
@@ -21,16 +21,16 @@ else:
 
 # directory containing the question and annotation jsons
 if version == 'v1':
-    qa_path = dataroot + 'vqa-{}1.0/qa_path/'.format(type)
+    qa_path = dataroot + 'vqa-{}1.0/'.format(type)
 elif version == 'v2':
-    qa_path = dataroot + 'vqa-{}2.0/qa_path/'.format(type)
+    qa_path = dataroot + 'vqa-{}2.0/'.format(type)
 
 glove_path = dataroot + 'word_embed/glove/'
 
 # dataroot and proceed_data path
-main_path = '../data/'
+main_path = dataroot
 cache_root = main_path + (type + version)
-rcnn_path = main_path + '../rcnn-data/'
+rcnn_path = main_path + 'rcnn-data/'
 
 output_features = 2048
 rcnn_output_size = 36  # max number of object proposals per image
