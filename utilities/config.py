@@ -40,7 +40,7 @@ rcnn_trainval_path = rcnn_path + 'trainval_{}.h5'.format(rcnn_output_size)  # pa
 rcnn_test_path = rcnn_path + 'test_{}.h5'.format(rcnn_output_size)  # path where preprocessed features from the test split are saved to and loaded from
 
 hid_dim = 1024
-epochs = 30
+epochs = 40
 workers = 4
 
 margin = 0

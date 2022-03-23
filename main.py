@@ -1,6 +1,7 @@
 import os, argparse
 import torch
 import json
+import shutil
 import numpy as np
 import torch.nn as nn
 import torch.optim as optim
@@ -8,9 +9,6 @@ import torch.optim as optim
 from model import base_model
 from train.train_baseline import run
 from utilities import config, utils, dataset as data
-
-
-torch.autograd.set_detect_anomaly(True)
 
 
 def parse_args():
@@ -63,6 +61,9 @@ if __name__ == '__main__':
     output_path = 'saved_models/{}/{}'.format(config.type + config.version, args.output)
     utils.create_dir(output_path)
     torch.backends.cudnn.benchmark = True
+
+    # TODO copy config.py to output_path
+    shutil.copy('utilities/config.py', output_path + '/config.py')
 
     ######################################### DATASET PREPARATION #######################################
     if config.mode == 'train':
